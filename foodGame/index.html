@@ -1,11 +1,16 @@
 <html>
-  <body>
-  </body>
-  <script>
-    $(function() {
-      $.get('https://spreadsheets.google.com/feeds/list/14Api7DqQXEs-T1PPWXKhHKZf00w3o8UqIh1kBCvTZYM/1/public/values?alt=json', function(data) {
-        console.log(data);
-      });
+
+<head>
+  <script src="jquery-3.4.1.min.js"></script>
+</head>
+
+<body>
+</body>
+<script>
+  $(function () {
+    $.get('https://spreadsheets.google.com/feeds/list/14Api7DqQXEs-T1PPWXKhHKZf00w3o8UqIh1kBCvTZYM/1/public/values?alt=json', function (data) {
+      console.log(data);
     });
-  </script>
+  });
+</script>
 <html>
