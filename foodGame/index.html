@@ -1,16 +1,49 @@
+<!DOCTYPE html>
 <html>
 
 <head>
-  <script src="jquery-3.4.1.min.js"></script>
+  <title>KUI</title>
+  <meta charset="utf-8" />
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
+  <script src="https://cdn.jsdelivr.net/npm/vue@2.6.11"></script>
+  <!-- 引入样式 -->
+  <link rel="stylesheet" href="https://unpkg.com/element-ui/lib/theme-chalk/index.css">
+  <!-- 引入组件库 -->
+  <script src="https://unpkg.com/element-ui/lib/index.js"></script>
+  <!-- <script type="text/javascript">
+    $(function () {
+      $.get('https://script.google.com/macros/s/AKfycbww2VMeMXxRyvY-ZLptjURvm9COodyVHScaZB-x23MWFaOF_GA/exec', function (e) {
+        console.log(e);
+      });
+    });
+  </script> -->
 </head>
 
 <body>
+  <div id="app">
+    <el-container>
+      <el-aside width="200px">Aside</el-aside>
+      <el-container>
+        <el-header>Header</el-header>
+        <el-main>Main</el-main>
+        <el-footer>Footer</el-footer>
+      </el-container>
+    </el-container>
+    <Menu />
+  </div>
 </body>
-<script>
-  $(function () {
-    $.get('https://spreadsheets.google.com/feeds/list/14Api7DqQXEs-T1PPWXKhHKZf00w3o8UqIh1kBCvTZYM/1/public/values?alt=json', function (data) {
-      console.log(data);
-    });
-  });
+<script type="module">
+  import Menu from './menu.html';
+  Vue.component('Menu', Menu);
+
+  new Vue({
+    el: '#app',
+    components: { Menu },
+    data: function () {
+      return { 
+      }
+    }
+  })
 </script>
-<html>
+
+</html>
