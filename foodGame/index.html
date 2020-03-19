@@ -5,7 +5,8 @@
   <title>KUI</title>
   <meta charset="utf-8" />
   <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
-  <script src="https://cdn.jsdelivr.net/npm/vue@2.6.11"></script>
+  <script src="https://unpkg.com/vue"></script>
+  <script src="https://unpkg.com/http-vue-loader"></script>
   <!-- 引入样式 -->
   <link rel="stylesheet" href="https://unpkg.com/element-ui/lib/theme-chalk/index.css">
   <!-- 引入组件库 -->
@@ -21,27 +22,18 @@
 
 <body>
   <div id="app">
-    <el-container>
-      <el-aside width="200px">Aside</el-aside>
-      <el-container>
-        <el-header>Header</el-header>
-        <el-main>Main</el-main>
-        <el-footer>Footer</el-footer>
-      </el-container>
-    </el-container>
-    <Menu />
+    <Kmenu></Kmenu>
   </div>
-</body>
-<script type="module">
-  import Menu from './menu.vue';
-  Vue.component('Menu', Menu);
 
-  new Vue({
+</body>
+
+<script>
+  var app = new Vue({
     el: '#app',
-    components: { Menu },
-    data: function () {
-      return { 
-      }
+    data: {
+    },
+    components: {
+      'Kmenu': httpVueLoader('./components/menu.vue')
     }
   })
 </script>
