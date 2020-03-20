@@ -4,36 +4,44 @@
 <head>
   <title>KUI</title>
   <meta charset="utf-8" />
+  <link rel="stylesheet" href="./main.css">
   <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
-  <script src="https://unpkg.com/vue"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/vue/2.6.11/vue.min.js"></script>
   <script src="https://unpkg.com/http-vue-loader"></script>
   <!-- 引入样式 -->
   <link rel="stylesheet" href="https://unpkg.com/element-ui/lib/theme-chalk/index.css">
   <!-- 引入组件库 -->
   <script src="https://unpkg.com/element-ui/lib/index.js"></script>
-  <!-- <script type="text/javascript">
-    $(function () {
-      $.get('https://script.google.com/macros/s/AKfycbww2VMeMXxRyvY-ZLptjURvm9COodyVHScaZB-x23MWFaOF_GA/exec', function (e) {
-        console.log(e);
-      });
-    });
-  </script> -->
 </head>
 
 <body>
   <div id="app">
-    <Kmenu></Kmenu>
-  </div>
+    <Kmenu :activiy-name="activiyName" :menu-config="MenuConfig" @changeVal="(val) => activiyName = val">
 
+    </Kmenu>
+  </div>
 </body>
 
-<script>
+<script type="module">
+
+  import MenuConfig from './assets/menuConfig.js';
   var app = new Vue({
     el: '#app',
-    data: {
+    data: function () {
+      return {
+        activiyName: 'index',
+        MenuConfig: MenuConfig
+      }
     },
     components: {
       'Kmenu': httpVueLoader('./components/menu.vue')
+    },
+    mounted() {
+      $(function () {
+        $.get('https://script.google.com/macros/s/AKfycbww2VMeMXxRyvY-ZLptjURvm9COodyVHScaZB-x23MWFaOF_GA/exec', function (e) {
+          console.log(e);
+        });
+      });
     }
   })
 </script>
